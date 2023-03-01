@@ -1,0 +1,121 @@
+Lab 2
+
+1. 
+
+using System;
+class Array1
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the size of an arry");
+        int n = int.Parse(Console.ReadLine());
+        int[]a = new int[n];
+        int sum = 0;
+        Console.WriteLine("Enter " +  n + "numbers") ;
+        for(int i = 0; i < n; i++)
+        {
+            a[i] = int.Parse(Console.ReadLine());
+        }
+        for(int i = 0; i < n; i++)
+        {
+            sum += a[i];
+        }
+        Console.WriteLine("The sum is" + sum); 
+    }
+}
+
+
+
+
+2.
+using System;
+class Array2
+{
+    static void Main(string[] args)
+    {
+        int[] arr = new int[10];
+        int i, j, temp, n;
+        Console.WriteLine("Enter the size of an array");
+        n = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter " + n + "numbers to sort");
+        for(i = 0; i < n;i++)
+        {
+            arr[i] = int.Parse(Console.ReadLine());
+        }
+        for (i = 0; i < n; i++)
+        {
+            for (j = i + 1; j < n; j++)
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        Console.WriteLine("Elements of array in sorted order");
+        for (i = 0; i < n; i++)
+        {
+            Console.WriteLine(arr[i]);
+        }
+    }
+}
+
+
+
+3.
+
+using System;
+class Array4
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the number:");
+        int n = int.Parse(Console.ReadLine());
+        Console.WriteLine("The reverse of " +  n + "is: " + reverse(n)) ;
+
+    }
+    static int reverse(int n)
+    {
+        int rev = 0;
+        while (n != 0)
+        {
+            int rem = n % 10;
+            rev = rev * 10 + rem;
+            n = n / 10;
+        }
+        return rev;
+    }
+}
+
+
+
+4.
+
+
+using System;
+class Array5
+{
+    static void Main(string[] args)
+    {
+        int[] arr = new int[10];
+        Console.WriteLine("Enter 5 numbers");
+        for(int i =0;i<5;i++)
+        {
+            arr[i] = int.Parse(Console.ReadLine());
+        }
+        Console.WriteLine("The greatest element is : " + greatest(arr));
+
+    }
+    static int greatest(int[] arr)
+    {
+        int greatest = arr[0];
+        for(int i=0;i<arr.Length;i++)
+        {
+            if (arr[i] > greatest)
+            {
+                greatest = arr[i];
+            }
+        }
+        return greatest;
+    }
+}

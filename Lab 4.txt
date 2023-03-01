@@ -1,0 +1,137 @@
+Lab 4 
+
+//Divide by zero exception 
+
+using  System;
+    class DivideByZero
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Enter two numbers\n");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            try
+            {
+                int c = a / b;
+                Console.WriteLine("The division is : " + c);
+            }catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        
+    }
+
+
+
+//Index Out
+
+
+using System;
+class IndexOut
+{
+    static void Main(string[] args)
+    {
+        int[] c = { 5, 10, 15, 20 };
+        Console.WriteLine("Enter a number");
+        int n = int.Parse(Console.ReadLine());
+        try
+        {
+            Console.WriteLine(c[n]);
+        }
+        catch (IndexOutOfRangeException)
+        {
+            Console.WriteLine("Invalid Array Index");
+        }
+
+    }
+}
+
+
+
+//Own Exception
+
+
+
+using System;
+public class MyException : Exception
+{
+    public MyException(string msg) : base(msg)
+    {
+    }
+}
+class TestExc
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter two numbers");
+        double a = double.Parse(Console.ReadLine());
+        double b = double.Parse(Console.ReadLine());
+
+        try
+        {
+            double c = a / b;
+            if (c < 0.0001)
+            {
+                throw new MyException("Number is too small");
+            }
+            else
+                Console.WriteLine("Result is: " + c);
+        }
+        catch (MyException e)
+        {
+            Console.WriteLine(e);
+        }
+    }    
+    } 
+
+
+
+//Time overload
+
+
+class Time
+{
+    public int hr, min, sec;
+
+    public static Time operator +(Time t1, Time t2)
+    {
+        Time t3 = new Time();
+        t3.sec = t1.sec + t2.sec;
+        t3.min = t1.min + t2.min + (t3.sec / 60);
+        t3.sec = (t3.sec % 60);
+        t3.hr = t1.hr + t2.hr + (t3.min / 60); 
+        t3.min = (t3.min % 60);
+
+        return t3;
+    }
+
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        Time t1 = new Time();
+        t1.hr = 5;
+        t1.min = 65;
+        t1.sec = 65;
+
+        Time t2 = new Time();
+        t2.hr = 4;
+        t2.min = 65;
+        t2.sec = 70;
+
+        Time t3 = new Time();
+        t3 = t1 + t2;
+        
+        Console.WriteLine("Hour: " + t3.hr + "hr");
+        Console.WriteLine("Min :" + t3.min + "min");
+        Console.WriteLine("Sec :" + t3.sec + "sec");
+
+    }
+}
+
+
+
+

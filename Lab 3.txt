@@ -1,0 +1,267 @@
+Lab 3
+
+1.Setter Getter
+
+using System;
+class Employee
+{
+    private string name;
+    private int age,salary;
+
+    public void SetName(string name)
+    {
+        this.name = name;
+    }
+    public void SetAge(int age)
+    {
+        this.age = age;
+    }
+    public void SetSalary(int salary)
+    {
+        this.salary = salary;
+    }
+
+    public void GetName()
+    {
+        Console.Write("Name is :" + name + "\n");
+    }
+    public void GetAge()
+    {
+        Console.Write("Age is :" + age + "\n");
+    }
+    public void GetSalary()
+    {
+        Console.Write("Salary is :" + salary + "\n");
+    }
+    static void Main(string[] args)
+    { 
+        Employee e = new Employee();
+        e.SetName("Sanam");
+        e.SetSalary(200000);
+        e.SetAge(23);
+        e.GetName();
+        e.GetAge();
+        e.GetSalary();
+    }
+}
+
+
+
+
+3.  Area 
+
+
+
+using System;
+
+
+class Area
+{
+
+    public static double length, breadth;
+
+    Area(double l, double b)
+    {
+        length = l;
+        breadth = b;
+    }
+
+    public double GetArea()
+    {
+        return length * breadth;
+    }
+
+    static void Main(string[] args)
+    {
+
+        Console.WriteLine("Enter length : \n");
+        length = double.Parse(Console.ReadLine());
+        Console.WriteLine("Enter breadth : \n");
+        breadth = double.Parse(Console.ReadLine());
+        Area a = new Area(length, breadth);
+        Console.WriteLine("Area is : " + a.GetArea());
+    }
+}
+
+
+
+
+
+
+2. Properties
+
+using System;
+class Student
+{
+    private string name, faculty;
+    private int age;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+    public int Age
+    {
+        get { return age; }
+        set { age = value; }
+    }
+    public string Faculty
+    {
+        get { return faculty; }
+        set { faculty = value; }
+    }
+
+    static void Main(string[] args)
+    { 
+        Student std = new Student();
+        std.age = 22;
+        std.name = "Ram";
+        std.faculty = "BCA";
+        Console.WriteLine("Name is : " + std.Name);
+        Console.WriteLine("Age is :" + std.Age);
+        Console.WriteLine("Faculty is : "+ std.Faculty);
+    }
+}
+
+
+
+
+3.
+
+
+
+
+using System;
+
+
+class Area
+{
+
+    public static double length, breadth;
+
+    Area(double l, double b)
+    {
+        length = l;
+        breadth = b;
+    }
+
+    public double GetArea()
+    {
+        return length * breadth;
+    }
+
+    static void Main(string[] args)
+    {
+
+        Console.WriteLine("Enter length : \n");
+        length = double.Parse(Console.ReadLine());
+        Console.WriteLine("Enter breadth : \n");
+        breadth = double.Parse(Console.ReadLine());
+        Area a = new Area(length, breadth);
+        Console.WriteLine("Area is : " + a.GetArea());
+    }
+}
+
+
+
+4.
+
+
+using System;
+
+interface Calculation
+{
+    void add(int a, int b);
+    int multiply(int a, int b);
+}
+class CalculationDemo : Calculation
+{
+    public void add(int a, int b)
+    {
+        Console.WriteLine("Sum is :" + (a + b));
+    }
+    public int multiply(int a, int b)
+    {
+        return a * b;
+    }
+}
+class Test
+{
+    static void Main(string[] args)
+    {
+        CalculationDemo c = new CalculationDemo();
+        c.add(5, 5);
+        int res = c.multiply(5, 5);
+        Console.WriteLine("Multiply is : " + res);
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+5.
+
+using System;
+class Person
+{
+   public string firstName, lastName;
+    public int age;
+    public  Person(string firstName, string lastName, int age)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    public virtual void  ShowInfo()
+    {
+        Console.WriteLine("First Name is : " + firstName);
+        Console.WriteLine("Last Name is : " + lastName);
+        Console.WriteLine("Age is : " + age);
+    }
+}
+
+class Student : Person
+{
+    string faculty;
+    public Student(string fisrtName, string lastName, int age, string faculty): base(fisrtName, lastName, age)
+    {
+        this.faculty = faculty;
+    }
+   public override void ShowInfo()
+    {
+        Console.WriteLine("Faculty is : " +  faculty);
+    }
+}
+
+class Teacher : Person
+{
+    int salary;
+    public Teacher(string fisrtName, string lastName, int age, int salary) : base(fisrtName, lastName, age)
+    {
+        this.salary = salary;
+    }
+    public override void ShowInfo()
+    {
+        Console.WriteLine("Faculty is : " + salary);
+    }
+}
+
+class Inherit
+{
+    static void Main(string[] args)
+    {
+        Person p = new Person("Ram", "Kharel", 25);
+        p.ShowInfo();
+        Student s = new Student("Sita", "Bhandari", 22, "BCA");
+        s.ShowInfo();
+        Teacher t = new Teacher("Shiva", "Rudra", 100, 2222222);
+        t.ShowInfo();
+    }
+}
