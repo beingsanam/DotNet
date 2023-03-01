@@ -1,0 +1,123 @@
+lab 1
+
+using System;
+class Lab1
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter 2 numbers");
+        int a = int.Parse(Console.ReadLine());
+        int b = int.Parse(Console.ReadLine());
+        int add = a + b;
+        int sub = a - b;
+        int mult = a * b;
+        int div = a / b;
+        Console.WriteLine("Sum is : " + add);
+        Console.WriteLine("Difference is : " + sub);
+        Console.WriteLine("Product is : " + mult);
+        Console.WriteLine("Division is : " + div);
+
+    }
+}
+
+
+
+2.
+
+
+using System;
+class OddEven
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter a number");
+        int num = int.Parse(Console.ReadLine());
+        if (num % 2 == 0)
+        {
+            Console.WriteLine("It is even");
+        }
+        else
+        {
+            Console.WriteLine("It is odd");
+        }
+    }
+}
+.
+
+
+3.
+
+using System;
+class Prime
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Prime numbers 100 - 200");
+        int i;
+        for(i = 100; i <= 200; i++)
+        {
+            int x = 0;
+            for(int n = 2; n <= i / 2; n++)
+            {
+                if(i% 2 == 0)
+                {
+                    x = x + 1;
+                    break;
+                }
+            }
+            if(x == 0)
+            {
+                Console.WriteLine( i );
+            }
+        }
+    }
+}
+
+
+
+///
+
+
+
+using System;
+class Series
+{
+    static void Main(string[] args)
+    {
+        for(int i=1;i<=5;++i)
+        {
+            for(int j=1; j <= i; ++j)
+            {
+                Console.Write("*");
+            }
+            Console.Write("\n");
+        }
+        
+    }
+}
+
+
+
+
+
+
+/////
+
+
+using System;
+class Vowel
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter an alphabet");
+        char ch = (char)Console.Read();
+        if(ch =='a' ||  ch == 'e' || ch=='i' || ch=='o' || ch == 'u')
+        {
+            Console.WriteLine("It is vowel");
+        }
+        else
+        {
+            Console.WriteLine("It is consonant");
+        }
+    }
+}
